@@ -1,0 +1,87 @@
+<meta charset="UTF-8"> 
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="../js/vue.js"></script>
+vue 全局及局部组件：
+<hr>
+<style>
+div{border:1px dashed #eee; margin:5px; padding:10px;}
+</style>
+
+<div id="seg1">
+	<alert></alert>
+	<alert></alert>
+</div>
+
+<div id="seg2">
+	<alert></alert>
+	<alert2></alert2>
+</div>
+
+<div id="seg3">
+	<alert></alert>
+	<alert>没有显示2</alert>
+	<alert3></alert3>
+</div>
+
+<div id="app">
+	{{math}}
+</div>
+
+<hr>
+F12 控制台，输入 app.chinese=80
+
+<script>
+Vue.component('alert',{
+	template:'<button @click="on_click">弹出窗提醒！</button>',
+	methods:{
+		on_click:function(){
+			alert('弹出的js窗口。' + this.math)
+		}
+	}
+})
+//组件必须放到实例内部，才能渲染
+new Vue({el:'#seg1'})
+
+//私有的组件
+new Vue({
+	el:'#seg2',
+	components:{
+		'alert2':{
+			template:'<button @click="on_click2">弹2</button>',
+			methods:{
+				on_click2:function(){
+					alert('on click2');
+				}
+			}
+		}
+	}
+})
+
+//私有的组件，封装版
+var alert3_component={
+	template:'<button @click="on_click2">弹3</button>',
+	methods:{
+		on_click2:function(){
+			alert('on click3');
+		}
+	}
+}
+new Vue({
+	el:'#seg3',
+	components:{
+		'alert3':alert3_component,
+	}
+})
+
+//还没有说组件之间的通信
+app=new Vue({
+	el:'#app',
+	data:{
+		math:100,
+	},
+});
+</script>
+

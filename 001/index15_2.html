@@ -1,0 +1,102 @@
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="../js/vue.js"></script>
+vue 自定义指令 - 修饰符及传参
+<hr>
+<style>
+/*第17课时*/
+.card{
+	background:rgba(255,255,0,0.5);
+	height:60px;border-radius:5px;
+	width:150px;
+	padding:10px;
+	margin:5px;
+}
+</style>
+
+<div id="app">
+	<!--
+		v-pin.bottom.right 指定修饰符，可以用于位置
+		v-pin:true 传递参数，用于表示重要
+	-->
+	<div v-pin:true.bottom.right='card1.pinned' class='card'>
+		<button @click='card1.pinned=!card1.pinned'>钉住/取消</button>
+		<br>
+		this is a dog
+	</div>
+	<div v-pin.right='card2.pinned' class='card'>
+		<button @click='card2.pinned=!card2.pinned'>pin me</button><br>
+		this is a cat
+	</div>
+	
+	<div class='card'>this is a sth1</div>
+	<div class='card'>this is a sth2</div>
+	<div class='card'>this is a sth3</div>
+	<div class='card'>this is a sth4</div>
+	<div class='card'>this is a sth5</div>
+
+	
+	{{price}}
+</div>
+
+
+<hr>
+F12 控制台，输入 app.price=80
+
+
+<script>
+Vue.directive('pin',function(el,binding){
+	//el 该dom元素
+	//binding.value 就是元素v-pin="引号内的值"
+	//console.log(el, binding.value, binding)
+	var pinned=binding.value;
+	
+	//获取pin修饰符
+	var position=binding.modifiers;
+	//console.log(el, binding.value, position)
+	//{bottom: true, right: true}
+	
+	//获取参数 true
+	var warning=binding.arg;
+	//console.log(el, binding.value, warning)
+	//false "true"
+
+	if(pinned){
+		el.style.position='fixed';
+		
+		//设置位置修饰符
+		for(var key in position){
+			if(position[key]){
+				el.style[key]='10px';
+			}
+		}
+		//el.style.top=el.offsetTop+"px"
+		//el.style.left=el.offsetLeft+"px"
+		
+		//参数修饰符
+		if(warning==="true"){
+			el.style.background="red";
+		}
+		
+	}else{
+		el.style.position='static';
+	}
+})
+
+app=new Vue({
+	'el':"#app",
+	'data':{
+		'price':10,
+		card1:{
+			pinned:false,
+		},
+		card2:{
+			pinned:false,
+		}
+	}
+})
+</script>
+
+

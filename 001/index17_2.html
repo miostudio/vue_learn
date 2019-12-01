@@ -1,0 +1,65 @@
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="../js/vue.js"></script>
+vue slots 插槽 - 带名字的 slot(特别常用，可以把一个组件套到另一个组件中)
+甚至，一个组件内套很多组件，即灵活又简洁。非常强大。
+<hr>
+<style>
+/*第20课时*/
+.panel{border:1px solid #aaa; width:200px; margin-bottom:15px;}
+.panel>*{padding:10px;}
+.panel .title{border-bottom:1px solid #aaa;}
+.panel .footer{border-top:1px solid #aaa;}
+</style>
+
+<div id="app">
+	<panel>
+		<div slot="c0">title 001</div>
+		<div slot="c1">001 白日依山尽</div>
+		<div slot="c2">001 more</div>
+	</panel>
+	<panel>
+		<div slot="c0">title 002</div>
+		<div slot="c1">002 黄河入海流</div>
+	</panel>
+	<panel>003
+		<div slot="c2">003 更多</div>
+	</panel>
+	{{price}}
+</div>
+
+
+<template id="panel-tpl">
+	<div class="panel">
+		<div class="title">
+			<slot name="c0">Title here.</slot>
+		</div>
+		
+		<div class="content">
+			<slot name="c1">默认值</slot>
+		</div>
+		
+		<div class="footer">
+			<slot name="c2">更多信息</slot>
+		</div>
+	</div>
+</template>
+
+<hr>
+F12 控制台，输入 app.price=80
+
+
+<script>
+Vue.component('panel', {
+	template:'#panel-tpl',
+})
+
+var app=new Vue({
+	'el':"#app",
+	'data':{
+		'price':100
+	}
+})
+</script>

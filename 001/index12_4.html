@@ -1,0 +1,75 @@
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="../js/vue.js"></script>
+vue 组件通信 - 父子组件的通信，用户系统使用方法:
+子级组件给父组件传参，写法2：通过事件通信，子组件触发父组件事件，同时传参
+<hr>
+<style>
+</style>
+
+<div id="app">
+	<balance></balance>
+</div>
+
+
+<hr>
+F12 控制台，输入 app.maxValue=80
+
+
+<script>
+//设置组件变量
+
+//父组件
+Vue.component('balance',{
+	//1.模板中监听事件 @show-balance，初始值false，所以不显示v-if;
+	//2.单击触发事件后；3.事件内show_balance变为true，则下面v-if执行;
+	template:`
+	<div>
+		<show msg="又该融资了" @show-balance="show_balance"></show>
+		<div v-if="show">您的余额是 0.9 元</div>
+	</div>
+	`,
+	methods:{
+		show_balance:function(data){
+			this.show=true;
+			console.log(data) //4.这里可以接收参数！step2子组件被触发时传入数据
+			//{a: 1, b: 2}
+		}
+	},
+	data:function(){
+		return {show:false}
+	}
+})
+
+//子组件
+Vue.component('show',{
+	template:'<button @click="on_click">显示余额</button>',
+	props:['msg'],
+	methods:{
+		on_click:function(){
+			alert(this.msg);//获取语义标签的msg属性值
+			
+			//2.自定义事件被触发
+			this.$emit('show-balance',{a:1,b:2});
+		}
+	}
+})
+
+
+app=new Vue({
+	'el':"#app",
+	'data':{
+		'maxValue':120,
+	}
+})
+</script>
+
+
+
+
+
+
+
+

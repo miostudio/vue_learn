@@ -1,0 +1,74 @@
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="../js/vue.js"></script>
+vue 组件通信 - 任意及平行组件间通信：调度器
+<hr>
+<style>
+/*第15课时*/
+</style>
+
+<div id="app">
+	<wangcaidog></wangcaidog>
+	<zhaocaicat></zhaocaicat>
+	{{maxValue}}
+</div>
+
+
+<hr>
+F12 控制台，输入 app.maxValue=80
+
+
+<script>
+//事件调用机制
+var Event=new Vue();//1.调度器
+
+Vue.component('wangcaidog',{
+	template:`<div>
+	我说: <input @keyup="on_change" v-model="i_said" />{{i_said}}
+	</div>`, //1.键抬起的事件函数
+	data:function(){
+		return{
+			i_said:'dogSay',
+		}
+	},
+	methods:{
+		//3.键抬起时，触发自定义事件'dog-said-something'，并传参
+		on_change:function(){
+			//要用调度器 Event 触发事件
+			Event.$emit('dog-said-something', this.i_said);
+		}
+	}
+})
+
+Vue.component('zhaocaicat',{
+	template:`<div>
+		dog说：<input v-model="dog_said" />{{dog_said}}
+	</div>`,
+	data:function(){
+		return{
+			dog_said:'dogSaid22',
+		}
+	},
+	//4.一开始就监听自定义事件'dog-said-something'
+	mounted:function(){
+		var _this=this;
+		//要用调度器 Event 监听事件
+		Event.$on('dog-said-something',function(data){
+			//console.log(data)//能接收到dog组件的信息
+			_this.dog_said=data //5.注意this的指向
+		})
+	}
+	
+})
+
+app=new Vue({
+	'el':"#app",
+	'data':{
+		'maxValue':120,
+	}
+})
+</script>
+
+

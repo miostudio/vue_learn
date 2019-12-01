@@ -1,0 +1,50 @@
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="../js/vue.js"></script>
+vue 组件通信 - 父子组件的通信，用户系统使用方法:
+父级组件给子组件传参，通过自定义属性，从外向内传(html to js
+<hr>
+<style>
+
+</style>
+
+
+	<!--a href="/usr/wjl">wjl</a-->
+<div id="app">
+	<user username='wangjl'></user> : {{maxValue}}
+</div>
+
+
+<hr>
+F12 控制台，输入 app.maxValue=80
+
+
+<script>
+Vue.component('user',{
+	template:'<a :href="\'/usr/\'+username" @mouseenter="on_enter">@{{username}}</a>',
+	props:['username'], //1.组件中；2.props数组中；
+	methods:{
+		on_enter:function(){
+			console.log(new Date().getTime(),this.username) //3.方法中可用该属性
+		}
+	}
+})
+//设置组件变量
+app=new Vue({
+	el:'#app',
+	data:{
+		maxValue:100,
+		msg:'Yooooo.' //本例中组件读取不到这里
+	},
+});
+</script>
+
+
+
+
+
+
+
+

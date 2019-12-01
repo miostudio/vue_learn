@@ -1,0 +1,78 @@
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="../js/vue.js"></script>
+vue 过滤器:优化用户体验的最后一步，不改变数字，只改形式。如果过滤器特别复杂，考虑是否写成带缓存的计算属性。
+<hr>
+<style>
+/*第16课时*/
+.box{border:2px dotted #faa;padding:10px;margin:5px;}
+</style>
+
+<div id="app">
+	<div class=box>
+		length: <input type=input v-model=length /> mm<br>
+		默认 {{length|meter}}<br>
+		{{length|meter('mm')}}<br>
+		{{length|meter('cm')}}<br>
+		{{length|meter('dm')}}<br>
+		{{length|meter('m')}}<br>
+	</div>
+	<div class=box>
+		Set Price: <input type=input v-model=price /><br>
+		China: {{price |currency}}<br>
+		USA: {{price |currency2('USD')}}
+	</div>
+</div>
+
+
+<hr>
+F12 控制台，输入 app.price=80
+
+
+<script>
+//定义过滤器
+Vue.filter('currency',function(val){
+	var val=val||0; //设置默认值，防止没数字时刻显示一个空元。
+	return val+'元';
+})
+//过滤器还可以传递参数
+Vue.filter('currency2',function(val, unit){
+	var val=val||0; //防止没数字时刻显示一个空元。
+	var unit=unit||'元'; //国际化货币支持
+	
+	if(unit=="USD"){
+		val=(val/6.9).toFixed(2)
+	}
+	return val+unit;
+})
+
+Vue.filter('meter',function(val,unit){
+	//设置默认值
+	var val=val||0;
+	var unit=unit||'m';	
+	var fc;//换算倍数
+	if('m'==unit){
+		fc=1000
+	}else if('cm'==unit){
+		fc=100
+	}else if('dm'==unit){
+		fc=10
+	}else if('mm'==unit){
+		fc=1
+	}
+	
+	return (val/fc).toFixed(2)+unit;//固定取2位小数
+})
+
+app=new Vue({
+	'el':"#app",
+	'data':{
+		'price':10,
+		'length':1.73891*1000,
+	}
+})
+</script>
+
+

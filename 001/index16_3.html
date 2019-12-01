@@ -1,0 +1,92 @@
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="../js/vue.js"></script>
+vue mixins 混合 - v3使用mixin减少重复代码，优先级(自定义会覆盖掉mixin)
+<hr>
+<style>
+/*第19课时*/
+.tooltip,
+.popup{background:yellow; width:200px; margin:10px auto;}
+</style>
+
+<div id="app">
+	<popup></popup>
+	<tooltip></tooltip>
+	{{price}}
+</div>
+
+
+<hr>
+F12 控制台，输入 app.price=80
+
+
+<script>
+//version 1,组件内部可以使用@mouseenter="visible=true" 调用自己的数据visible
+//version 2,组件内调用方法@mouseenter="show" 访问数据
+//两个组件，相同的属性和方法，可以定义到mixin中，减少重复代码。
+//version 3, 减少重复
+
+var base={
+	methods:{
+		show:function(){
+			this.visible=true;
+		},
+		hide:function(){
+			this.visible=false;
+		}
+	},
+	data:function(){
+		return {
+			visible:false,
+		}
+	}
+}
+
+Vue.component('tooltip',{
+	//鼠标悬停弹窗
+	template:`
+	<div>
+		<span @mouseenter="show" @mouseleave="hide">someTools</span>
+		<div class=tooltip v-if="visible">牛xx的工具集</div>
+	</div>
+	`,
+	data:function(){
+		return {
+			visible:true, //自定义的会覆盖掉mixins
+		}
+	},
+	mixins:[base],
+})
+
+Vue.component('popup',{
+	//单击弹窗
+	template:`
+	<div>
+		<button @click="toggle">Popup</button>
+		<div class=popup v-if="visible">
+			<span @click="hide">X</span>
+			<h4>Popup Title</h4>
+			This is a popup
+		</div>
+	</div>
+	`,
+	methods:{
+		toggle:function(){
+			this.visible = !this.visible;
+		},
+	},
+	mixins:[base],
+})
+
+
+var app=new Vue({
+	'el':"#app",
+	'data':{
+		'price':200
+	}
+})
+</script>
+
+

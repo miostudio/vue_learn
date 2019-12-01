@@ -1,0 +1,79 @@
+<meta charset="UTF-8"> 
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="../js/vue.js"></script>
+<style>
+label{line-height:30px; display:block;}
+pre b{color:red;}
+</style>
+v-model 模型：添加新员工
+<hr>
+
+<div id="app">
+	<label>Name: 
+		<input type="input" v-model.number="name">
+	</label>
+
+	<label>Sex: 
+		<input type="radio" v-model="sex" value="F">Female
+		<input type="radio" v-model="sex" value="M">Male
+	</label>
+
+	<label>habit: 
+		<input type="checkbox" v-model="habit" value="化妆">化妆
+		<input type="checkbox" v-model="habit" value="跳舞">跳舞
+		<input type="checkbox" v-model="habit" value="唱歌">唱歌
+		<input type="checkbox" v-model="habit" value="画画">画画
+	</label>
+
+	<label>Story: 
+		<select v-model="story">
+			<option value="1">1层: 奢侈品</option>
+			<option value="2">2层：超市</option>
+			<option value="3">3层：服装</option>
+			<option value="4">4层：电器</option>
+			<option value="5">5层：教育</option>
+			<option value="6">6层：餐饮</option>
+		</select>
+	</label>
+
+	<label>Ideal Job: <br>
+		<select v-model="job" multiple>
+			<option value="0">经理</option>
+			<option value="1">销售</option>
+			<option value="2">收银</option>
+			<option value="3">程序员</option>
+		</select>
+	</label>
+
+	<label>Other note: <br>
+		<textarea v-model="text"></textarea>
+	</label>
+	
+	<label>提交： 
+		<input type='submit' value='都没有name，则么提交呢？ajax'>
+	</label>
+	
+	<hr>核对区域:
+	<pre>info: name:<b>{{name}}</b>; Sex:<b>{{sex}}</b>; Story:<b>{{story}}</b>; habit:<b>{{habit}}</b>; text:<b>{{text}}</b>; job:<b>{{job}}</b></pre>
+</div>
+
+<hr>
+F12 控制台，输入 app.sex="F"<br>
+app.story=2
+
+<script>
+var app=new Vue({
+	el:"#app",
+	data:{
+		name:"Lily",
+		sex:"M",
+		habit:["唱歌","化妆"],
+		story:3,
+		job:[],
+		text:"this is a very long text; this is a very long text; ",
+	}
+});
+</script>

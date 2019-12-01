@@ -1,0 +1,54 @@
+<meta charset="UTF-8">
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="../js/vue.js"></script>
+
+<div id="app">
+<h1>{{ name }}</h1>
+	<ol>
+		<li v-for="food in foodList">{{food}}</li>
+	</ol>
+	
+	<ul>
+		<li v-for="food in foodList2">{{food.name}}: ￥<del>{{food.price}}</del> ￥{{food.discount?food.price * food.discount:food.price}}</li>
+	</ul>
+</div>
+在F12控制台，改变数据会立刻更新dom视图:<br>
+app.foodList2.push({name:"猪肉", price:50, discount:0.99}) 
+
+<script>
+var app=new Vue({
+	el:'#app',
+	data:{
+		name:'Vue v-for 杂货店',
+		foodList:['葱','姜','蒜'],//str数组，信息不够丰富
+		foodList2:[//obj数组，信息更多
+			{
+				name:"葱",
+				price:10,
+				discount:0.8
+			},
+			{
+				name:"姜",
+				price:30,
+				discount:0.5
+			},
+			{
+				name:"蒜",
+				price:15,
+				discount:0.3
+			},
+			{
+				name:"鸡蛋",
+				price:20,
+				//不打折，怎么设置默认值？防止出错NaN
+				//div中使用三元运算符 x?a:b;
+			},
+			
+			
+		]
+	}
+})
+</script>
