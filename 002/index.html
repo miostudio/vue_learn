@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="../js/vue.js"></script>
+
+<div id="app">
+  {{ message + name }}
+</div>
+
+
+<script>
+var app=new Vue({
+	'el':"#app",
+	data:{ //直接绑定到vue对象了
+		message:"hello, ",
+		name:"Vue.js2"
+	}
+})
+</script>
+
+</script>

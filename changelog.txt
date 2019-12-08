@@ -1,3 +1,8 @@
 change log 
 
 v0.1 第一个视频看完
+v0.2 Vue cli 4.1.1, vue router入门
+
+
+vue小实例 - 用户管理模块。
+https://study.163.com/course/courseLearn.htm?courseId=1004461012#/learn/video?lessonId=1048870012&courseId=1004461012
