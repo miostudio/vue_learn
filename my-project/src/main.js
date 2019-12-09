@@ -2,9 +2,11 @@
 //要调用 Vue.use(VueRouter)
 import Vue from 'vue'
 import VueRouter from 'vue-router' //1.引用路由
+import VueResource from 'vue-resource' //1.引用路由
 import App from './App.vue'
 
 Vue.use(VueRouter) //0.2 中间件，使用该插件
+Vue.use(VueResource) //0.2 中间件，使用该插件
 
 // 1. 定义 (路由) 组件。
 // 可以从其他文件 import 进来

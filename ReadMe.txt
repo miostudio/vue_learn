@@ -24,3 +24,18 @@ ES6, webpack, vue, vuex
 路由和请求
 生命周期
 
+1. 001/ 是script标签引入的 vue 学习笔记
+[看完了] 很好，很全面，入门vue了
+https://study.163.com/course/courseLearn.htm?courseId=1004181065
+
+
+
+2.my-projet/ 是 vue-cli 创建的项目
+[看完了] 很好，入门 cli，router了。英语单词发音问题很大。
+https://study.163.com/course/courseMain.htm?courseId=1004461012
+
+
+更多cli 视频
+https://study.163.com/course/courseLearn.htm?courseId=1004711010#/learn/video?lessonId=1278717866&courseId=1004711010
+
+

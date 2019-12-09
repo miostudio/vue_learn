@@ -71,6 +71,24 @@ export default{
 			this.users.splice(index,1);
 		},
 	},
+	//看vue生命周期
+	created:function(){
+		this.$http.get("http://jsonplaceholder.typicode.com/users")
+			.then(function(res){
+				//console.log('created 002', res.body)
+				//{id: 1, name: "Leanne Graham", username: "Bret", email: "Sincere@april.biz", address: {…}, …}
+				//做形式转换
+				for(var i in res.body){
+					var item=res.body[i];
+					//console.log(item);
+					this.users.push({
+						name:item.name,
+						email:item.email,
+						contacted:false
+					})
+				}//end for
+			})
+	}
 }
 </script>
 
