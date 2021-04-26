@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+
+<div id="app">
+	<div v-on:click="doSth">{{message}}</div>
+	<div @click="doSth2">{{message}} 2</div>
+
+	<!-- 在 v-bind 指令中 -->
+	<div v-bind:id="rawId">set id</div>
+	<div :id="rawId2">set id2</div>
+</div>
+    
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    message: '缩写',
+	rawId:"setId",
+	rawId2:"setId2"
+  },
+  methods:{
+	doSth:function(){
+		console.log("clicked")
+	},
+	doSth2:function(){
+		console.log("clicked2")
+	}
+  }
+
+})
+</script>

@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<!-- 生产环境版本，优化了尺寸和速度 Vue.js v2.5.22-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+
+
+<style>
+.red{color:red;}
+</style>
+<div id="app">
+  <label for="r1">修改颜色</label>
+  <input type="checkbox" v-model="use" id="r1"><!-- v-model 对应着data内部同名变量-->
+  <br><br>
+  
+  <div v-bind:class="{'red': use}">
+    v-bind:class 指令
+  </div>
+</div>
+    
+<script>
+new Vue({
+    el: '#app',
+  data:{
+      use: false
+  }
+});
+</script>

@@ -1,0 +1,42 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+
+<style>
+.base {
+	width: 100px;
+	height: 100px;
+	background: green;
+}
+.text-danger {
+	width: 200px;
+	background:red;
+}	
+</style>
+
+
+<div id="app">
+	<div v-bind:class="classObject">classObject 01 </div>
+</div>
+
+<script>
+new Vue({
+	el: '#app', 
+	data: { 
+		isActive: true, 
+		error: { 
+			value: true, 
+			type: 'fatal' 
+		}
+	},
+	computed: { 
+		classObject: function () {
+			return {
+				base: true, 
+				active: this.isActive && !this.error.value, 
+				'text-danger': this.error.value && this.error.type === 'fatal', 
+			}
+		}
+	}
+})
+</script>

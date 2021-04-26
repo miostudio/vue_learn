@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<!-- 生产环境版本，优化了尺寸和速度 Vue.js v2.5.22
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+-->
+<script src="../vue.js"></script>
+
+
+<style>
+#list-1002{color:red;}
+</style>
+<div id="app">
+    {{5+5}}<br>
+    {{ ok ? 'YES' : 'NO' }}<br>
+    {{ message.split('').reverse().join('') }}
+    <div v-bind:id="'list-' + id">xx教程</div>
+</div>
+    
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    ok: true,
+    message: 'abcd1234',
+    id : 1002
+  }
+})
+</script>

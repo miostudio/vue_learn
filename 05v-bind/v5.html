@@ -1,0 +1,34 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+
+<style>
+.base {
+	width: 100px;
+	height: 100px;
+	background: green;
+}
+.text-danger {
+	width: 200px;
+	background:red;
+}	
+</style>
+
+
+<div id="app">
+	<div v-bind:class="[activeClass, errorClass]"> 数组语法 实例5 //todo</div>
+</div>
+
+<script>
+new Vue({
+	el: '#app', 
+	data: { 
+		isActive: true, 
+		error: { 
+			value: true, 
+			type: 'fatal' 
+		}
+	},
+
+})
+</script>

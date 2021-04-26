@@ -1,0 +1,45 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+<div id="app">
+  <p>全局执行次数计数器: num，在F12中查看。vm.message=vm.message</p>
+  <p>原始字符串: {{ message }}</p>
+  <p>计算后反转字符串 方法: {{ reversedMessage2() }}</p>
+  <p>计算后反转字符串 计算: {{ reversedMessage }}</p>  
+  
+  <p>计算后反转字符串 方法: {{ reversedMessage2() }}</p>
+  <p>计算后反转字符串 计算: {{ reversedMessage }} 使用了缓存，显示没变</p>
+</div>
+
+
+<hr>
+<pre>
+computed vs methods
+我们可以使用 methods 来替代 computed，效果上两个都是一样的，但是 computed 是基于它的依赖缓存，只有相关依赖发生改变时才会重新取值。而使用 methods ，在重新渲染的时候，函数总会重新调用执行。
+
+可以说使用 computed 性能会更好，但是如果你不希望缓存，你可以使用 methods 属性。
+</pre>
+
+<script>
+var num=0
+var vm = new Vue({
+  el: '#app',
+  data: {
+    message: '_1234_'
+  },
+  computed: {
+    // 计算属性的 getter
+    reversedMessage: function () {
+      // `this` 指向 vm 实例
+	  num+=1
+      return num+this.message.split('').reverse().join('')
+    }
+  },
+  methods: {
+	  reversedMessage2: function () {
+		num+=1
+		return num+this.message.split('').reverse().join('')
+	  }
+	}
+})
+</script>

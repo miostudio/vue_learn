@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+<div id="app">
+    <pre><a v-bind:href="url">百度</a></pre>
+</div>
+    
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    url: 'https://www.baidu.com'
+  }
+})
+
+//另一个例子是 v-on 指令，它用于监听 DOM 事件：
+//<a v-on:click="doSomething">
+
+</script>
