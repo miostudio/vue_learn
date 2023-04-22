@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+
+<div id="app">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">反转字符串</button>
+</div>
+    
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    message: '12345'
+  },
+  methods:{
+	reverseMessage: function(){
+		this.message=this.message.split("").reverse().join('')
+	}
+  }
+})
+</script>

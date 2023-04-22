@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+
+<div id="app">
+	<form v-on:submit.prevent="onSubmit">
+
+		<input type="submit" value="Submit" />
+	</form>
+</div>
+
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    url: 'https://www.baidu.com'
+  },
+  methods:{
+	onSubmit:function(){
+		alert("onSubmit:xxx")
+		return true; //为什么不起作用？
+		//return false;
+	}
+  }
+})
+</script>

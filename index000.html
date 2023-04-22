@@ -1,0 +1,85 @@
+<meta charset="utf-8">
+<!-- 生产环境版本，优化了尺寸和速度 Vue.js v2.5.22
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+
+<style>
+html,p{margin:0; padding:0;}
+</style>
+<h1>Vue.js 2.0</h1>
+
+<p>url:http://vue.biomooc.com/</p>
+<p>notebook: D:\xampp\htdocs\vue_test | http://vue.cc/</p>
+<p>Win10: G:\xampp\htdocs\vue_learn | http://vue.dawneve.cc/</p>
+<hr \>
+<p>https://v2.cn.vuejs.org/</p>
+<p>http://www.runoob.com/vue2/vue-if.html</p>
+
+<ol>
+	<li><a target="_blank" href="vue1.html">vue1.html </a> hello</li>
+	<li><a target="_blank" href="vue2.html">vue2.html </a> 绑定消息 v-bind:</li>
+	<li><a target="_blank" href="vue3.html">vue3.html </a> 数据和方法</li>
+	<li><a target="_blank" href="vue4.html">vue4.html </a> vm.xx==data.xx</li>
+	<li><a target="_blank" href="vue5.html">vue5.html </a>$开头的变量 vm.$el, vm.$data</li>
+<!-- 5 $
+http://www.runoob.com/vue2/vue-template-syntax.html
+-->
+<!-- -->
+	<hr>
+	<li><a target="_blank" href="01/v1.html">01/1v-html</a> 指令用于输出 html {{html代码}} </li>
+	<li><a target="_blank" href="01/v2.html">01/2v-bind</a> HTML 属性中的值应使用 v-bind 指令 </li>
+	<li><a target="_blank" href="01/v3.html">01/3 js支持</a> vue提供了完整的js支持 </li>
+	<li><a target="_blank" href="01/v4.html">01/4 指令</a> 是带有 v- 前缀的特殊属性。用于在表达式的值改变时，将某些行为应用到 DOM 上。 </li>
+	<li><a target="_blank" href="01/v5.html">01/5 参数</a> 在指令后以冒号指明。</li>
+	<li><a target="_blank" href="01/v6.html">01/6 参数</a> on</li>
+	<li><a target="_blank" href="01/v7.html">01/7 修饰符</a> 修饰符是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()</li>
+	<li><a target="_blank" href="01/v8.html">01/8 用户输入</a> 双向绑定： v-model 指令用来在 input、select、text、checkbox、radio 等表单控件元素上创建双向数据绑定，根据表单上的值，自动更新绑定的元素的值。</li>
+	<li><a target="_blank" href="01/v9.html">01/9 v-on</a> 按钮的事件我们可以使用 v-on 监听事件，并对用户的输入进行响应。</li>
+	<li><a target="_blank" href="01/v10.html">01/10 过滤器</a> 自定义过滤器，被用作一些常见的文本格式化。由"管道符"指示。可串联，可带参数。</li>
+	<li><a target="_blank" href="01/v11.html">01/11 缩写</a> v-bind:href( :href); v-on:click( @click ) </li>
+	
+	<hr>
+	<li><a target="_blank" href="02if_for/v1.html">02if_for/v1 v-if</a> </li>
+	<li><a target="_blank" href="02if_for/v2.html">02if_for/v2 if</a> 字符串模板//todo 不懂</li>
+	<li><a target="_blank" href="02if_for/v3.html">02if_for/v3 v-else指令</a> 给 v-if 添加一个 "else" 块：随机数</li>
+	<li><a target="_blank" href="02if_for/v3-2.html">02if_for/v3-2 v-else指令</a> 给 v-if 添加一个 "else" 块  2：随机变量</li>
+	<li><a target="_blank" href="02if_for/v4.html">02if_for/v4 v-else-if指令</a> vue2.1.0新增，可以多次链式调用</li>
+	<li><a target="_blank" href="02if_for/v5.html">02if_for/v5 v-show指令</a>  来根据条件展示元素</li>
+	<br>
+	for:	
+	<li><a target="_blank" href="02if_for/v6.html">02if_for/v6 v-for 指令</a> </li>
+	<li><a target="_blank" href="02if_for/v6-2.html">02if_for/v6-2 v-for 指令</a> 模板中使用v-for</li>
+	<li><a target="_blank" href="02if_for/v7.html">02if_for/v7 v-for 迭代对象</a> v-for 可以通过一个对象的属性来迭代数据。</li>
+	<li><a target="_blank" href="02if_for/v7-2.html">02if_for/v7-2 v-for 迭代对象</a> 也可以提供第二个的参数为键名。</li>
+	<li><a target="_blank" href="02if_for/v7-3.html">02if_for/v7-3 v-for 迭代对象</a> 第三个参数为索引。</li>
+	<li><a target="_blank" href="02if_for/v8.html">02if_for/v8 v-for 迭代对象</a> 也可以循环整数。</li>
+	
+	<hr>
+	<li><a target="_blank" href="03computed/v1.html">03computed/v1 用js计算</a> </li>
+	<li><a target="_blank" href="03computed/v2.html">03computed/v2 计算属性</a> </li>
+	<li><a target="_blank" href="03computed/v3.html">03computed/v3 计算属性</a> computed vs methods </li>
+	<li><a target="_blank" href="03computed/v4.html">03computed/v4 计算属性</a> computed setter </li>
+	
+	<hr>
+	<li><a target="_blank" href="04watch/v1.html">04watch/v1 监听属性watch</a> 可以通过 watch 来响应数据的变化。 </li>
+	<li><a target="_blank" href="04watch/v2.html">04watch/v2 监听属性watch</a>  千米与米之间的换算 </li>
+	<li><a target="_blank" href="04watch/v3.html">04watch/v3 监听属性watch</a> 购物车 </li>
+<!-- -->
+	<hr>
+	<li><a target="_blank" href="05v-bind/v1.html">05v-bind/v1 样式绑定</a> class 属性绑定 </li>
+	<li><a target="_blank" href="05v-bind/v2.html">05v-bind/v2 样式绑定</a> 也可以在对象中传入更多属性用来动态切换多个 class </li>
+	<li><a target="_blank" href="05v-bind/v3.html">05v-bind/v3 样式绑定 多个</a> classObject //todo </li>
+	<li><a target="_blank" href="05v-bind/v4.html">05v-bind/v4 样式 绑定返回对象的计算属性</a> 常用且强大的模式 </li>
+	<li><a target="_blank" href="05v-bind/v5.html">05v-bind/v5 样式 数组语法</a> 可以把一个数组传给 v-bind:class //todo</li>
+	<li><a target="_blank" href="05v-bind/v6.html">05v-bind/v6 样式 三元表达式来切换列表中的 class </a>  //todo</li>
+	<li>Vue.js style(内联样式) //todo //更多实例 </li>
+
+
+	<hr>
+	<li><a target="_blank" href="06v-on/v1.html">06v-on/v1 Vue.js事件处理器</a> </li>
+
+
+</ol>

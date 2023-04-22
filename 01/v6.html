@@ -1,0 +1,24 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+<div id="app">
+    <pre><a v-on:click="doSomething">F12打开console，并单击here</a></pre>
+</div>
+    
+<script>
+var vm=new Vue({
+  el: '#app',
+  data: {
+    url: 'https://www.baidu.com'
+  },
+  methods:{
+	doSomething:function(){
+		console.log("clicked.",this.url)
+	}
+  }
+})
+
+//另一个例子是 v-on 指令，它用于监听 DOM 事件：
+//<a v-on:click="doSomething">
+
+</script>
