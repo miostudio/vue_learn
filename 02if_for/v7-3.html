@@ -1,0 +1,34 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+
+<div id="app">
+注意：v-for="(value, key, index) in object" 中，key是第二个参数。第三个参数为索引
+  <ul>
+    <li v-for="(value, key, index) in object">
+    {{index}}. {{key}} : {{ value }}
+    </li>
+  </ul>
+</div>
+ 
+<script>
+var vm=new Vue({
+  el: '#app',
+  data: {
+    object: {
+      name: 'xx教程',
+      url: '1s后被改写： baidu.com',
+      slogan: '一句话口号'
+    }
+  }
+})
+
+//改写一下值，1s后
+//setInterval(function(){
+setTimeout(function(){
+	var oldURL=vm.object.url
+	var newURL="http://www.biomooc.com"
+	vm.object.url=newURL;
+	console.log(newURL)
+},1000)
+</script>
