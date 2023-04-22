@@ -4,6 +4,8 @@ v0.1 第一个视频看完
 v0.2 Vue cli 4.1.1, vue router入门
 v0.3 Vue cli 4.1.1, vue resource
 
+重新整理 2023
+v0.3.1 看前几个
 
 vue小实例 - 用户管理模块。
 https://study.163.com/course/courseLearn.htm?courseId=1004461012#/learn/video?lessonId=1048870012&courseId=1004461012

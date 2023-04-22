@@ -1,10 +1,26 @@
 学习前端框架 Vue.js 
 
+learn vue.js
+
+
+教程：
+https://v2.cn.vuejs.org/
+http://www.runoob.com/vue2/vue-if.html
+
+代码：目录文件 index.html
+1.模板概念
+2.流程控制 if, for
+
+
+把本根目录设置为 http://vue.cc/
 
 策略: 视频入门，之后看官方文档。
 
-主要概念:
+01/
+ - vue1.html
 
+
+主要概念:
 Vue-CLI脚手架搭建
 Vue-指令
 Vue-条件及循环语句

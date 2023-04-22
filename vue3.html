@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+<!-- 生产环境版本，优化了尺寸和速度 Vue.js v2.5.22
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+-->
+<script src="/vue.js"></script>
+
+<div id="vue_det">
+    <h1>site : {{site}}</h1>
+    <h1>url : {{url}}</h1>
+    <h1>{{details()}}</h1>
+</div>
+<script type="text/javascript">
+    var vm = new Vue({
+		//作用的元素
+        el: '#vue_det', 
+		
+		//数据
+        data: {
+            site: "xx网",
+            url: "www.runoob.com",
+            alexa: "10000"
+        },
+		
+		//方法
+        methods: {
+            details: function() {
+                return  this.site + " - do have faith in what you are doing.";
+            }
+        }
+    })
+</script>
