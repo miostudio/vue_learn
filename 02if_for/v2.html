@@ -1,0 +1,25 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+
+字符串模板//todo 不懂
+
+<div id="app">
+
+	<!-- Handlebars 模板 -->
+	{{#if ok}}
+	  <h1>Yes</h1>
+	{{/if}}
+
+</div>
+    
+<script>
+//在字符串模板中，如 Handlebars ，我们得像这样写一个条件块：
+
+var vm=new Vue({
+  el: '#app',
+  data: {
+    ok: true
+  }
+})
+</script>

@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+
+<div id="app">
+    <div v-if="type === 'A'">
+      A
+    </div>
+    <div v-else-if="type === 'B'">
+      B
+    </div>
+    <div v-else-if="type === 'C'">
+      C
+    </div>
+    <div v-else>
+      Not A/B/C
+    </div>
+</div>
+    
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    type: 'D'
+  }
+})
+</script>
