@@ -1,0 +1,15 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+<div id="app">
+  {{ message.split('').reverse().join('') }}
+</div>
+
+<script>
+new Vue({
+	el:"#app",
+	data:{
+		message:"12345 this is a book"
+	}
+})
+</script>

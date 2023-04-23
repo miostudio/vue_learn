@@ -1,0 +1,44 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+<div id="app">
+  <p>name:{{name}}, url:{{url}}</p>
+</div>
+<hr>
+<pre>
+computed 属性可以有 getter 和 setter。
+
+F12 console > vm.site="百度 baidu.com"
+</pre>
+
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    name: 'Google',
+    url: 'http://www.google.com'
+  },
+  computed: {
+    site: {
+      // getter
+      get: function () {
+        return this.name + ' ' + this.url
+      },
+      // setter
+      set: function (newValue) {
+        var names = newValue.split(' ')
+        this.name = names[0]
+        this.url = names[names.length - 1]
+      }
+    }
+  }
+})
+
+// 调用 setter， vm.name 和 vm.url 也会被对应更新
+vm.site = 'xx教程 http://www.biomooc.com';
+/*
+document.write('name: ' + vm.name);
+document.write('<br>');
+document.write('url: ' + vm.url);
+*/
+</script>
