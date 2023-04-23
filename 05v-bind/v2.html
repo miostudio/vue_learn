@@ -1,0 +1,34 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+<style>
+.active {
+	font-size:20px;
+	border: 5px solid red;
+}
+.text-danger {
+	background:#FF000055;
+}	
+</style>
+
+
+<div id="app">
+	<div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }"> 多个 styles </div>
+</div>
+
+<pre>
+F12 Console> vm.isActive=false
+F12 Console> vm.hasError=false
+</pre>
+
+<script>
+//以上div的class为 <div class="active"></div>
+
+var vm=new Vue({
+	el:"#app",
+	data:{
+		isActive:true,
+		hasError:true
+	}
+})
+</script>

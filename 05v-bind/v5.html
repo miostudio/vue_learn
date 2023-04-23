@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<script src="../vue.js"></script>
+
+<style>
+.active {
+	width: 200px;
+	height: 100px;
+	background: green;
+}
+.text-danger {
+	background: red;
+}	
+</style>
+
+
+<div id="app">
+	<div v-bind:class="[activeClass, errorClass]"> 数组语法 实例5</div>
+</div>
+F12 Console > vm.activeClass=""
+
+<script>
+var vm=new Vue({
+	el: '#app', 
+	data: { 
+		activeClass: "active",
+		errorClass: "text-danger" 
+	}
+})
+</script>
