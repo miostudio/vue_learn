@@ -10,6 +10,7 @@ v0.3.2 看 01/
 v0.3.3 看 02if_for/if
 v0.3.4 看 02if_for/for
 v0.3.5 看 03computed
+v0.3.6 看 04watch
 
 
 vue小实例 - 用户管理模块。
