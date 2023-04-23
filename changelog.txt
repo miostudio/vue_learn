@@ -3,6 +3,7 @@ change log
 v0.1 第一个视频看完
 v0.2 Vue cli 4.1.1, vue router入门
 v0.3 Vue cli 4.1.1, vue resource
+## v0.4 重整目录，放到 git pages
 
 重新整理 2023
 v0.3.1 看前几个
@@ -13,7 +14,9 @@ v0.3.5 看 03computed
 v0.3.6 看 04watch
 v0.3.7 看 05v-bind
 v0.3.8 其余变化
-
+#
+v0.4.0 合并远程分支
+#
 
 vue小实例 - 用户管理模块。
 https://study.163.com/course/courseLearn.htm?courseId=1004461012#/learn/video?lessonId=1048870012&courseId=1004461012
