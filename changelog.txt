@@ -12,6 +12,7 @@ v0.3.4 看 02if_for/for
 v0.3.5 看 03computed
 v0.3.6 看 04watch
 v0.3.7 看 05v-bind
+v0.3.8 其余变化
 
 
 vue小实例 - 用户管理模块。
